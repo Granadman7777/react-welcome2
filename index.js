@@ -13,10 +13,15 @@ class Counter extends React.component {
        }
 
        decrement() {
-        // if(this,state.count)
-        this.setState({
-            count: this.state.count --
-        })
+        if(this,state.count < 0) {
+            this.setState({
+                count: this.state.count --
+            })
+        } else if(this.state.count === 0) {
+            this.set.state({
+                count: this.state.count
+            })
+        }
        }
 
        render() {
