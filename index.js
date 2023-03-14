@@ -1,16 +1,34 @@
-class HeaaderComponent extends React.Component {
-    render() {
-        console.log(this.props)
-        const p = React.createElement('p', {}, 'Super paragraph');
-        const h2 = React.createElement('h2', {title: 'Hi'}, `Hello ${this.props}`);
-        const article = React.createElement('article', {}, h2, p);
-        return article;
+class Counter extends React.component {
+    constructor(props) {
+        super(props);
+        this.state = {   // состояние нашего компонента  
+            count: 0
+        }    
+       }
+
+       increment() {
+        this.setState({
+            count: this.state.count ++ 
+        })
+       }
+
+       decrement() {
+        // if(this,state.count)
+        this.setState({
+            count: this.state.count --
+        })
+       }
+
+       render() {
+        const h2 = React.createElement('h2', {}, this.state.count);
+        const buttonIncrement = React.createElement('button', { onClick: () => {this.increment}}, '+');
+        const buttonDecrement = React.createElement('button', {onclick: () => {this.decrement}}, '-');
+        return React.createElement(React.Freagment, null, h2, buttonDecrement, buttonIncrement); //обвертка
+        return h2;
+       }
     }
-}
 
-const component = React.createElement(HeaaderComponent, {name: "React Boy"}, 'Text');
-const component2 = React.createElement(HeaaderComponent, {name: 'Java Boy'});
-const parentElement = React.createElement('section', {}, component, component2);
-
-const root = document.querySelector('#root');
-ReactDOM.render(parentElement, root);
+    const component = React.createElement(counter);
+    
+    const root = document.querySelector('#root');
+    ReactDOM.render(component, root);
