@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
 class Counter extends React.component {
     constructor(props) {
         super(props);
@@ -34,6 +37,6 @@ class Counter extends React.component {
     }
 
     const component = React.createElement(counter);
-    
     const root = document.querySelector('#root');
+    
     ReactDOM.render(component, root);
