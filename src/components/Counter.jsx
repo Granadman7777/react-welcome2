@@ -27,11 +27,11 @@ class Counter extends React.component {
        }
 
        render() {
-        const h2 = React.createElement('h2', {}, this.state.count);
-        const buttonIncrement = React.createElement('button', { onClick: () => {this.increment}}, '+');
-        const buttonDecrement = React.createElement('button', {onclick: () => {this.decrement}}, '-');
-        return React.createElement(React.Freagment, null, h2, buttonDecrement, buttonIncrement); //обвертка
-        return h2;
+        return <React.Fragment>
+            <h2 title="hello">{this.state.count}</h2>
+            <button onClick={() => {this.decrement()}}> - </button>
+            <button onClick={() => {this.increment()}}> + </button>
+        </React.Fragment>
        }
     }
 
